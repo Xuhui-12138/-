@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片字幕生成器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>图片字幕生成器</h1>
+            <p class="subtitle">上传图片和多行文本，生成一张带叠加字幕的合成图片</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-box">
+                <h2>1. 上传图片</h2>
+                <div class="image-upload-area" id="imageUploadArea">
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <div class="upload-placeholder">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p>点击或拖拽图片到此处上传</p>
+                        <p class="hint">支持 JPG, PNG, GIF, WebP (最大 10MB)</p>
+                    </div>
+                    <img id="imagePreview" class="image-preview" style="display: none;" alt="预览图片">
+                </div>
+            </div>
+
+            <div class="text-input-box">
+                <h2>2. 输入文本（每行一个字幕）</h2>
+                <textarea 
+                    id="textInput" 
+                    placeholder="请输入文本，每行一个字幕&#10;例如：&#10;第一行字幕&#10;第二行字幕&#10;第三行字幕"
+                    rows="8"
+                ></textarea>
+                <div class="text-info">
+                    <span id="lineCount">0 行文本</span>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="generate-btn" disabled>
+                <span class="btn-text">生成图片</span>
+                <span class="btn-loading" style="display: none;">
+                    <span class="spinner"></span>
+                    生成中...
+                </span>
+            </button>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h2>生成结果</h2>
+            <div class="result-actions">
+                <button id="downloadBtn" class="download-btn">下载合成图片</button>
+            </div>
+            <div class="result-container" id="resultContainer">
+                <!-- 生成的图片将在这里显示 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
