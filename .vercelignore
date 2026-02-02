@@ -1,7 +1,8 @@
-# 忽略不需要部署的文件，加快上传速度
+# 忽略不需要部署的文件
 PRD.md
-public/
 .git
 .gitignore
 *.md
 node_modules
+script.js
+style.css
